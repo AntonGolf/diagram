@@ -1,0 +1,114 @@
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.diagram {
+  display: flex;
+  padding-top: 100px;
+  padding-left: 100px;
+  width: 845px;
+  height: 430px;
+}
+
+.diagram__left {
+  padding-top: 54px;
+}
+
+.types-jobs {
+}
+
+.types-jobs__lines {
+  display: flex;
+  align-items: center;
+  padding-top: 1px;
+  padding-bottom: 9px;
+}
+
+.types-jobs__lines--left {
+}
+
+.types-jobs__days {
+  width: 100px;
+  margin-right: 20px;
+}
+
+.types-jobs__title {
+}
+
+.types-jobs__lines--right {
+}
+
+.types-jobs__lines--right span {
+}
+
+.diagram__row rect {
+  fill: #f2f2f2;
+}
+
+.diagram__row rect:nth-child(2n) {
+  fill: #dadada;
+}
+
+.diagram__row-lines line {
+  stroke: #f8cccc;
+}
+
+.diagram__ticks line {
+  stroke: #ebeff2;
+}
+
+.diagram__content rect {
+  fill: #aeb8c2;
+}
+
+.diagram__square text {
+}
+
+.diagram__square rect {
+  fill: transparent;
+  background: 0;
+  border: 1px solid #d4d4d4;
+  stroke: red;
+}
+
+.diagram__square--text {
+  font-size: 14px;
+  color: #d4d4d4;
+}
+
+.diagram__square--numb {
+  font-size: 26px;
+  color: #333333;
+}
+
+.diagram {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 15px 0px;
+  grid-template-areas:
+    ". b"
+    "a c";
+}
+
+.types-jobs {
+  grid-area: a;
+  border-top: 1px solid #e8e8e8;
+  width: 396px;
+}
+
+.diagram-shedule {
+  grid-area: b;
+}
+
+.diagram__graph {
+  grid-area: c;
+}

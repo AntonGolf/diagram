@@ -1,0 +1,23 @@
+.jobs-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 25px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e8e8e8;
+
+  &__days {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #464646;
+  }
+
+  &__text {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+    letter-spacing: 0.06em;
+  }
+}
