@@ -3,6 +3,7 @@ import "./App.css";
 import { jobList } from "./data/jobList";
 import { TypesJobsTitle } from "./components/TypesJobsTitle/index";
 import { SheduleDiagram } from "./components/SheduleDiagram/index";
+import { ScheduleRectangles } from "./components/ScheduleRectangles";
 
 function App() {
   return (
@@ -15,8 +16,8 @@ function App() {
         })}
       </div>
       <SheduleDiagram jobList={jobList} />
-
-      <svg
+      <ScheduleRectangles jobList={jobList} />
+      {/* <svg
         xmlns="http://www.w3.org/2000/svg"
         className="diagram__graph"
         height="300"
@@ -43,7 +44,7 @@ function App() {
             </g>
           </g>
         </g>
-      </svg>
+      </svg> */}
     </div>
   );
 }

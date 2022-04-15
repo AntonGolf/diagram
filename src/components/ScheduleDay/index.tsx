@@ -1,6 +1,7 @@
 import React from "react";
 import "./styles.scss";
 import { daysWeeks } from "../../data/daysWeeks";
+import { squareWidth } from "./consts";
 
 type ScheduleDayProps = {
   date: string;
@@ -18,18 +19,18 @@ export const ScheduleDay: React.FC<ScheduleDayProps> = ({ date, index }) => {
     }
   });
 
-  console.log(index);
-  //   console.log(Date().getDay(date));
+  let squareX: number = squareWidth * index;
+  let squareNumbX: number = squareWidth * index + 15;
 
   return (
     <g className="diagram-shedule__square" width="85" height="106">
-      <text className="diagram-shedule__square--text" y="15" x="0">
+      <text className="diagram-shedule__square--text" y="15" x={squareX}>
         {dayWeekStrind}
       </text>
-      <text className="diagram-shedule__square--numb" y="90" x="15">
+      <text className="diagram-shedule__square--numb" y="90" x={squareNumbX}>
         {numberWeek}
       </text>
-      <rect y="21" x="0" width="85" height="85"></rect>
+      <rect y="21" x={squareX} width="85" height="85"></rect>
     </g>
   );
 };

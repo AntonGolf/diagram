@@ -19,8 +19,6 @@ export const SheduleDiagram: React.FC<SheduleDiagramProps> = ({ jobList }) => {
       ? new Date(sortedDates[sortedDates.length - 1])
       : null;
 
-  console.log(new Date().getDay());
-
   const dateList: Date[] = [];
 
   if (firstDate && lastDate) {
@@ -44,15 +42,6 @@ export const SheduleDiagram: React.FC<SheduleDiagramProps> = ({ jobList }) => {
           {dateList.map((item, i) => {
             return <ScheduleDay date={String(item)} index={i} />;
           })}
-          <g className="diagram-shedule__square" width="85" height="106">
-            <text className="diagram-shedule__square--text" y="15" x="0">
-              Пн
-            </text>
-            <text className="diagram-shedule__square--numb" y="90" x="15">
-              15
-            </text>
-            <rect y="21" x="0" width="85" height="85"></rect>
-          </g>
         </g>
       </svg>
     </div>
