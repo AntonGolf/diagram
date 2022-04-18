@@ -22,8 +22,20 @@ export const ScheduleDay: React.FC<ScheduleDayProps> = ({ date, index }) => {
   let squareX: number = squareWidth * index;
   let squareNumbX: number = squareWidth * index + 15;
 
+  let scheduleWeekend: boolean = false;
+
+  if (dayWeekStrind === "Сб" || dayWeekStrind === "Вс") {
+    scheduleWeekend = true;
+  }
+
   return (
-    <g className="diagram-shedule__square" width="85" height="106">
+    <g
+      className={`diagram-shedule__square ${
+        scheduleWeekend ? "shedule-weekend" : ""
+      }`}
+      width="85"
+      height="106"
+    >
       <text className="diagram-shedule__square--text" y="15" x={squareX}>
         {dayWeekStrind}
       </text>

@@ -3,6 +3,8 @@ import "./styles.scss";
 import { diagramDaysHeight } from "./consts";
 import moment from "moment";
 import { ScheduleDay } from "../ScheduleDay";
+import console from "console";
+import { ScheduleMonth } from "../ScheduleMonth";
 
 type SheduleDiagramProps = {
   jobList: any[];
@@ -31,8 +33,51 @@ export const SheduleDiagram: React.FC<SheduleDiagramProps> = ({ jobList }) => {
     }
   }
 
+  // let newDate: number = -1;
+  let allMonth: any = [];
+
+  // let myMass = dateList.forEach((item,i) => {
+  //   let dateR = new Date(item)
+  //   if(dateR.getMonth() !== newmas[i]){
+  //     newmas.push()
+  //   }
+
+  // })
+
+  dateList.forEach((item) => {
+    allMonth.push(item.getMonth());
+  });
+
+  // const uniqueArray = dateList.getMonth().filter(function(item, pos) {
+  //     return a.indexOf(item) == pos;
+  // })
+  const makeUniq = (arr: any) => {
+    return arr.reduce((acc: any, currentValue: any) => {
+      acc.indexOf(currentValue) === -1 && acc.push(currentValue);
+      return acc;
+    }, []);
+  };
+
+  let curAllMonth: any = makeUniq(allMonth);
+
   return (
     <div className="diagram-shedule">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="schedule__month"
+        height="70"
+        width="100%"
+      >
+        {curAllMonth.map((item: any) => {
+          return (
+            <ScheduleMonth
+              numbMonth={item}
+              sortMassive={dateList}
+              startDate={sortedDates[0]}
+            />
+          );
+        })}
+      </svg>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         height={diagramDaysHeight}

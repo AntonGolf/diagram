@@ -1,4 +1,5 @@
 import React from "react";
+import { squareWidth } from "../../data/consts";
 import { getDayDate } from "../functions/getDayDate";
 import "./styles.scss";
 
@@ -13,21 +14,25 @@ export const ScheduleRectanglesItem: React.FC<ScheduleRectanglesItemProps> = ({
   index,
   startDataMassive,
 }) => {
-  //длина прямоугольника
-  //startData
-  //endData
-  //вычислить количество дней в этом промежутке и умножить на 80
-
-  //отступ от лев края X
-  //startData из массива
-  //startData из item
-  //вычислить количество дней в этом промежутке и умножить на 80
-  //
   let getDayRect = getDayDate(jobListItem.start, jobListItem.end);
+  let getDayRectWidth = getDayDate(startDataMassive, jobListItem.start);
   let rectY = index * 65 + 17;
-  let rectWidth = getDayRect * 80;
+  let rectWidth = getDayRect.length * squareWidth;
+  let rectPaddingLeft = (getDayRectWidth.length - 1) * squareWidth;
 
-  console.log(rectWidth);
+  let rectColor: any;
 
-  return <rect x="0" y={rectY} width={rectWidth} height="35"></rect>;
+  jobListItem.color.length > 0
+    ? (rectColor = jobListItem.color)
+    : (rectColor = "#" + Math.floor(Math.random() * 16777215).toString(16));
+
+  return (
+    <rect
+      x={rectPaddingLeft}
+      y={rectY}
+      fill={rectColor}
+      width={rectWidth}
+      height="35"
+    ></rect>
+  );
 };

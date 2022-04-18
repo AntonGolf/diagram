@@ -14,8 +14,6 @@ code {
   display: flex;
   padding-top: 100px;
   padding-left: 100px;
-  width: 845px;
-  height: 430px;
 }
 
 .diagram__left {
@@ -47,14 +45,6 @@ code {
 }
 
 .types-jobs__lines--right span {
-}
-
-.diagram__row rect {
-  fill: #f2f2f2;
-}
-
-.diagram__row rect:nth-child(2n) {
-  fill: #dadada;
 }
 
 .diagram__row-lines line {
@@ -90,19 +80,25 @@ code {
 }
 
 .diagram {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 15px 0px;
-  grid-template-areas:
-    ". b"
-    "a c";
+  display: flex;
+
+  &__wrapper {
+    display: block;
+    margin-left: 20px;
+    width: 700px;
+    overflow-x: scroll;
+  }
+
+  &__inner {
+    width: 4745px;
+  }
 }
 
 .types-jobs {
   grid-area: a;
   border-top: 1px solid #e8e8e8;
   width: 396px;
+  margin-top: 183px;
 }
 
 .diagram-shedule {

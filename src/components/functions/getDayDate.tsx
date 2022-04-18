@@ -15,5 +15,5 @@ export const getDayDate = (firstDate: string, lastDate: string) => {
     }
   }
 
-  return dateList.length;
+  return dateList;
 };
